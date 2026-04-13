@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutryTaste Foods</title>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <img class="logo" src="images/logo.png" alt="logo">
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Gallery</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to NutryTaste Foods</h1>
+            <p>Delicious meals made fresh every day</p>
+            <a href="#" class="btn">View Menu</a>
+        </div>
+    </section>
+
+    <!-- FEATURED MEALS -->
+    <section class="featured-meals">
+        <h2>Featured Meals</h2>
+        <p>Our most popular dishes loved by customers</p>
+
+        <div class="meals-container">
+
+            <div class="meal-card">
+                <img src="images/jollof.jpg" alt="Jollof Rice">
+                <h3>Jollof Rice & Chicken</h3>
+                <p class="price">₦2,500</p>
+                <button>Order Now</button>
+            </div>
+
+            <div class="meal-card">
+                <img src="images/burger.jpg" alt="Burger">
+                <h3>Beef Burger & Fries</h3>
+                <p class="price">₦3,000</p>
+                <button>Order Now</button>
+            </div>
+
+            <div class="meal-card">
+                <img src="images/pizza.jpg" alt="Pizza">
+                <h3>Chicken Pizza</h3>
+                <p class="price">₦5,000</p>
+                <button>Order Now</button>
+            </div>
+
+            <div class="meal-card">
+                <img src="images/salad.jpg" alt="Salad">
+                <h3>Healthy Salad</h3>
+                <p class="price">₦2,000</p>
+                <button>Order Now</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="about-us">
+        <div class="about-container">
+
+            <div class="about-text">
+                <h2>About Us</h2>
+
+                <p>
+                    Welcome to <strong>NutryTaste Foods</strong>, where taste meets quality.
+                    We are passionate about serving delicious meals made with fresh ingredients
+                    and prepared with love.
+                </p>
+
+                <p>
+                    Our mission is to bring you fast, affordable, and tasty meals whether you
+                    are dining in, ordering online, or picking up.
+                </p>
+
+                <button>Learn More</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SLIDER -->
+    <section class="slider">
+
+        <div class="slides">
+
+            <div class="slide active">
+                <img src="images/rest1.jpg" alt="Restaurant 1">
+            </div>
+
+            <div class="slide">
+                <img src="images/rest2.jpg" alt="Restaurant 2">
+            </div>
+
+        </div>
+
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+    </section>
+
+    <!-- JAVASCRIPT (PUT AT BOTTOM) -->
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+
+            if (index >= slides.length) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = slides.length - 1;
+            } else {
+                currentIndex = index;
+            }
+
+            slides[currentIndex].classList.add("active");
+        }
+
+        function changeSlide(step) {
+            showSlide(currentIndex + step);
+        }
+
+        // initialize
+        showSlide(currentIndex);
+
+        // auto slide every 4 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 4000);
+    </script>
+
+</body>
+</html>
